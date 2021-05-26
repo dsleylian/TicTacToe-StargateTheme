@@ -1,0 +1,156 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 406px;
+    height: 405px;
+    margin-top: 105px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    background-image: url("../images/FullBox.jpg");
+    background-size: 100%;
+    z-index: 1;
+
+}
+
+.inside {
+    width: 133px;
+    height: 133px;
+    margin: 0;  
+}
+
+.markx {
+    background-image: url("../images/IndividualSpuareX.png");
+    background-size: 100%;
+    width: 133px;
+    height: 133px;
+    margin: 0;  
+}
+
+
+.marko {
+    background-image: url("../images/IndividualSpuareO.png");
+    background-size: 100%;
+    width: 133px;
+    height: 133px;
+    margin: 0;  
+
+}
+
+body {
+    text-align: center;
+    font-family: "Jazz LET", fantasy;
+    background-image: url("../images/egypt.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+   
+}
+h1 {
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-size: 60px;
+    font-weight: 900;
+    text-shadow: -1px -1px 0 #ffffff,  
+                    1px -1px 0 #ffffff,
+                    -1px 1px 0 #ffffff,
+                    1px 1px 0 #ffffff;
+    
+}
+
+button {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 3px 5px 0px 5px;
+    font-family: "Jazz LET", fantasy;
+    font-weight: 900;
+    font-size: 15px;
+    background-color: rgba(51, 161, 189);
+}
+
+button:hover {
+    box-shadow: 12px 12px 40px 0 rgba(16, 148, 196),-12px 12px 40px 0 rgba(16, 148, 196),
+    12px -12px 40px 0 rgba(16, 148, 196), -12px -12px 40px 0 rgba(16, 148, 196);
+}
+
+p {
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: -1px -1px 0 #ffffff,  
+                    1px -1px 0 #ffffff,
+                    -1px 1px 0 #ffffff,
+                    1px 1px 0 #ffffff;
+}
+
+p.right {
+    float: right;
+    margin-top: -60px;
+    margin-right: 100px;
+    
+  
+}
+p.left {
+    float: left; 
+    margin-top: -60px;
+    margin-left: 100px;
+
+}
+
+.playerx {
+    display: inline-block;
+    margin-left: 10px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+#startover {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+img {
+    height: 200px;
+}
+
+#righttorch {
+    float: right;
+    margin-right: 130px;
+}
+
+#lefttorch {
+    float: left;
+    margin-left: 130px;
+}
+
+#winnerIsX {
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    border:red 5px solid;
+    opacity: 0.7;
+    width: 450px;
+    z-index: 2;
+    margin-top: -295px;
+    margin-bottom: 100px;
+    padding: 50px;
+    background-color: linen;
+}
+
+#winnerIsO {
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    border:red 5px solid;
+    opacity: 0.7;
+    width: 450px;
+    z-index: 2;
+    margin-top: -295px;
+    margin-bottom: 100px;
+    padding: 50px;
+
+    background-color: linen;
+}
+
