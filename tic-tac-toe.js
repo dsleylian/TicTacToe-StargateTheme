@@ -79,7 +79,7 @@ noWinnerPara.appendChild(noWinnerText);
 document.body.insertBefore(noWinner, resetButton);
 noWinner.style.visibility = "hidden";
 
-//2 set up functions depensing on who starts
+//2 set up functions depending on who starts
 
 function setUpX () {
 
@@ -102,26 +102,35 @@ function startGame () {
     })
 }
 
-//marking the square when it's clicked
+/**
+ * markTheSqaure is a function
+ * @param {*} e 
+ * for the target div clicked: 
+ *      determine which player is playing, 
+ *      mark square with correct 
+ *      check if anyone won (calling checkTheWinner function)
+ *      toggle current player visibility 
+ */
 
 function markTheSquare(e) {
     
-        // make an array from node list !! 
+        // make an array from the node list 
     let divArray = Array.from(insideDivs);
     let arrayIndex = divArray.indexOf(e.target);
 
+        
     if(currentPlayer === "o") {
-        divArray[arrayIndex].setAttribute("class", "marko");
-        checkTheWinner(currentPlayer === "o" ? "marko" : "markx" );
-        currentPlayer = "x";
-        playerDisplayX.style.visibility = "visible";
+        divArray[arrayIndex].setAttribute("class", "marko");        //mark the sqaure with o
+        checkTheWinner(currentPlayer === "o" ? "marko" : "markx" ); //call checkTheWinner
+        currentPlayer = "x";                                        //toggle current player
+        playerDisplayX.style.visibility = "visible";                //toggle current player display and torch
         playerDisplayO.style.visibility = "hidden";
 
     } else {
-        divArray[arrayIndex].setAttribute("class", "markx");
-        checkTheWinner(currentPlayer === "o" ? "marko" : "markx" );
-        currentPlayer = "o";
-        playerDisplayO.style.visibility = "visible";
+        divArray[arrayIndex].setAttribute("class", "markx");        //mark the sqaure with x
+        checkTheWinner(currentPlayer === "o" ? "marko" : "markx" ); //call checkTheWinner, if current player is o pass "marko" else, pass "markx"
+        currentPlayer = "o";                                        //toggle current player
+        playerDisplayO.style.visibility = "visible";                //toggle current player display and torch
         playerDisplayX.style.visibility = "hidden";
     }
 
@@ -129,6 +138,13 @@ function markTheSquare(e) {
     divArray[arrayIndex].removeEventListener("click", markTheSquare);
 }
 
+/**
+ * checkTheWinner is a function
+ * @param {*} currentPlayer 
+ *  if current player is o pass "marko" else, pass "markx"
+ * check squares to see if a player has 3 in a row, 
+ * alternatively, if all squares are marked and no one won- display no winner banner
+ */
 function checkTheWinner(currentPlayer) {
     if ( 
             ( (insideDivs[0].classList.value) === currentPlayer && (insideDivs[1].classList.value) === currentPlayer && (insideDivs[2].classList.value) === currentPlayer ) ||
@@ -150,7 +166,7 @@ function checkTheWinner(currentPlayer) {
     ((insideDivs[3].classList.value) !== "inside" ) && ((insideDivs[4].classList.value) !== "inside" ) && ((insideDivs[5].classList.value) !== "inside" ) &&
     ((insideDivs[6].classList.value) !== "inside" ) && ((insideDivs[7].classList.value) !== "inside" ) && ((insideDivs[8].classList.value) !== "inside" )
     ) {
-        noWinner.style.visibility = "visible";  //if all squares are clicked but no winners, display no winner banner 
+        noWinner.style.visibility = "visible";  //if all squares are marked but no winners, display no winner banner 
     }
 }
 
