@@ -90,12 +90,10 @@ startGame();
 }
 
 function setUpO () {
-
     choosePlayer.style.visibility = "hidden";
     playerDisplayO.style.visibility = "visible";
     currentPlayer = "o";
     startGame();
-
 }
 
 function startGame () {
@@ -108,17 +106,20 @@ function startGame () {
 
 function markTheSquare(e) {
     
-        // make an a
+        // make an array from node list !! 
     let divArray = Array.from(insideDivs);
     let arrayIndex = divArray.indexOf(e.target);
 
     if(currentPlayer === "o") {
         divArray[arrayIndex].setAttribute("class", "marko");
+        checkTheWinner(currentPlayer === "o" ? "marko" : "markx" );
         currentPlayer = "x";
         playerDisplayX.style.visibility = "visible";
         playerDisplayO.style.visibility = "hidden";
+
     } else {
         divArray[arrayIndex].setAttribute("class", "markx");
+        checkTheWinner(currentPlayer === "o" ? "marko" : "markx" );
         currentPlayer = "o";
         playerDisplayO.style.visibility = "visible";
         playerDisplayX.style.visibility = "hidden";
@@ -126,42 +127,34 @@ function markTheSquare(e) {
 
     //remove the event listener from the square that was clicked
     divArray[arrayIndex].removeEventListener("click", markTheSquare);
+}
 
-    //each time a button is clicked, check for these conditions to see if a player won or if it is a tie and all squares are marked
+function checkTheWinner(currentPlayer) {
+    if ( 
+            ( (insideDivs[0].classList.value) === currentPlayer && (insideDivs[1].classList.value) === currentPlayer && (insideDivs[2].classList.value) === currentPlayer ) ||
+            ( (insideDivs[3].classList.value) === currentPlayer && (insideDivs[4].classList.value) === currentPlayer && (insideDivs[5].classList.value) === currentPlayer ) ||
+            ( (insideDivs[6].classList.value) === currentPlayer && (insideDivs[7].classList.value) === currentPlayer && (insideDivs[8].classList.value) === currentPlayer ) ||
+            ( (insideDivs[0].classList.value) === currentPlayer && (insideDivs[3].classList.value) === currentPlayer && (insideDivs[6].classList.value) === currentPlayer ) ||
+            ( (insideDivs[1].classList.value) === currentPlayer && (insideDivs[4].classList.value) === currentPlayer && (insideDivs[7].classList.value) === currentPlayer ) ||
+            ( (insideDivs[2].classList.value) === currentPlayer && (insideDivs[5].classList.value) === currentPlayer && (insideDivs[8].classList.value) === currentPlayer ) ||
+            ( (insideDivs[0].classList.value) === currentPlayer && (insideDivs[4].classList.value) === currentPlayer && (insideDivs[8].classList.value) === currentPlayer ) ||
+            ( (insideDivs[2].classList.value) === currentPlayer && (insideDivs[4].classList.value) === currentPlayer && (insideDivs[6].classList.value) === currentPlayer ) 
+        ) {
 
-    if (   ( (insideDivs[0].classList.value) === "markx" && (insideDivs[1].classList.value) === "markx" && (insideDivs[2].classList.value) === "markx" ) ||
-    ( (insideDivs[3].classList.value) === "markx" && (insideDivs[4].classList.value) === "markx" && (insideDivs[5].classList.value) === "markx" ) ||
-    ( (insideDivs[6].classList.value) === "markx" && (insideDivs[7].classList.value) === "markx" && (insideDivs[8].classList.value) === "markx" ) ||
-    ( (insideDivs[0].classList.value) === "markx" && (insideDivs[3].classList.value) === "markx" && (insideDivs[6].classList.value) === "markx" ) ||
-    ( (insideDivs[1].classList.value) === "markx" && (insideDivs[4].classList.value) === "markx" && (insideDivs[7].classList.value) === "markx" ) ||
-    ( (insideDivs[2].classList.value) === "markx" && (insideDivs[5].classList.value) === "markx" && (insideDivs[8].classList.value) === "markx" ) ||
-    ( (insideDivs[0].classList.value) === "markx" && (insideDivs[4].classList.value) === "markx" && (insideDivs[8].classList.value) === "markx" ) ||
-    ( (insideDivs[2].classList.value) === "markx" && (insideDivs[4].classList.value) === "markx" && (insideDivs[6].classList.value) === "markx" ) )  {
-
-    xWinner.style.visibility = "visible";  //if x won display x winner banner 
-
-    }else if (   ( (insideDivs[0].classList.value) === "marko" && (insideDivs[1].classList.value) === "marko" && (insideDivs[2].classList.value) === "marko" ) ||
-    ( (insideDivs[3].classList.value) === "marko" && (insideDivs[4].classList.value) === "marko" && (insideDivs[5].classList.value) === "marko" ) ||
-    ( (insideDivs[6].classList.value) === "marko" && (insideDivs[7].classList.value) === "marko" && (insideDivs[8].classList.value) === "marko" ) ||
-    ( (insideDivs[0].classList.value) === "marko" && (insideDivs[3].classList.value) === "marko" && (insideDivs[6].classList.value) === "marko" ) ||
-    ( (insideDivs[1].classList.value) === "marko" && (insideDivs[4].classList.value) === "marko" && (insideDivs[7].classList.value) === "marko" ) ||
-    ( (insideDivs[2].classList.value) === "marko" && (insideDivs[5].classList.value) === "marko" && (insideDivs[8].classList.value) === "marko" ) ||
-    ( (insideDivs[0].classList.value) === "marko" && (insideDivs[4].classList.value) === "marko" && (insideDivs[8].classList.value) === "marko" ) ||
-    ( (insideDivs[2].classList.value) === "marko" && (insideDivs[4].classList.value) === "marko" && (insideDivs[6].classList.value) === "marko" ) )  {
-
-    oWinner.style.visibility = "visible"; //if O won, display O winner banner 
-
+    if (currentPlayer === "markx") {
+        xWinner.style.visibility = "visible";  //if x won display x winner banner 
+    } else if (currentPlayer === "marko" ){
+        oWinner.style.visibility = "visible"; //if O won, display O winner banner 
+    } 
     } else if ( ((insideDivs[0].classList.value) !== "inside" ) && ((insideDivs[1 ].classList.value) !== "inside" ) && ((insideDivs[2].classList.value) !== "inside" ) &&
     ((insideDivs[3].classList.value) !== "inside" ) && ((insideDivs[4].classList.value) !== "inside" ) && ((insideDivs[5].classList.value) !== "inside" ) &&
     ((insideDivs[6].classList.value) !== "inside" ) && ((insideDivs[7].classList.value) !== "inside" ) && ((insideDivs[8].classList.value) !== "inside" )
     ) {
-        noWinner.style.visibility = "visible";  //if all squares are clicked but no winners, display not winner banner 
+        noWinner.style.visibility = "visible";  //if all squares are clicked but no winners, display no winner banner 
     }
-
 }
 
 function resetGame() {
-
     //remove all event listeners from unclclicked squares 
         insideDivs.forEach( div => {
         if (div.classList.value === "inside"){
