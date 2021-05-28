@@ -107,7 +107,7 @@ function startGame () {
 //marking the square when it's clicked
 
 function markTheSquare(e) {
-
+    
         // make an a
     let divArray = Array.from(insideDivs);
     let arrayIndex = divArray.indexOf(e.target);
