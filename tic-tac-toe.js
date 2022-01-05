@@ -122,6 +122,9 @@ function markTheSquare(e) {
     if(currentPlayer === "o") {
         divArray[arrayIndex].setAttribute("class", "marko");        //mark the sqaure with o
         checkTheWinner(currentPlayer === "o" ? "marko" : "markx" ); //call checkTheWinner
+        if( oWinner.style.visibility === "visible" || xWinner.style.visibility === "visible" || noWinner.style.visibility === "visible") {
+            return;  //if game is over stop toggling player
+        }
         currentPlayer = "x";                                        //toggle current player
         playerDisplayX.style.visibility = "visible";                //toggle current player display and torch
         playerDisplayO.style.visibility = "hidden";
@@ -129,6 +132,9 @@ function markTheSquare(e) {
     } else {
         divArray[arrayIndex].setAttribute("class", "markx");        //mark the sqaure with x
         checkTheWinner(currentPlayer === "o" ? "marko" : "markx" ); //call checkTheWinner, if current player is o pass "marko" else, pass "markx"
+        if( oWinner.style.visibility === "visible" || xWinner.style.visibility === "visible" || noWinner.style.visibility === "visible") {
+            return;     //if game is over stop toggling player
+        }
         currentPlayer = "o";                                        //toggle current player
         playerDisplayO.style.visibility = "visible";                //toggle current player display and torch
         playerDisplayX.style.visibility = "hidden";
@@ -159,14 +165,21 @@ function checkTheWinner(currentPlayer) {
 
     if (currentPlayer === "markx") {
         xWinner.style.visibility = "visible";  //if x won display x winner banner 
+        playerDisplayO.style.visibility = "hidden";  //hide current player display
+        playerDisplayX.style.visibility = "hidden"; 
+        
     } else if (currentPlayer === "marko" ){
-        oWinner.style.visibility = "visible"; //if O won, display O winner banner 
+        oWinner.style.visibility = "visible"; //if O won, display O winner banner
+        playerDisplayX.style.visibility = "hidden"; //hide current player display
+        playerDisplayO.style.visibility = "hidden";  //hide current player display
     } 
     } else if ( ((insideDivs[0].classList.value) !== "inside" ) && ((insideDivs[1 ].classList.value) !== "inside" ) && ((insideDivs[2].classList.value) !== "inside" ) &&
     ((insideDivs[3].classList.value) !== "inside" ) && ((insideDivs[4].classList.value) !== "inside" ) && ((insideDivs[5].classList.value) !== "inside" ) &&
     ((insideDivs[6].classList.value) !== "inside" ) && ((insideDivs[7].classList.value) !== "inside" ) && ((insideDivs[8].classList.value) !== "inside" )
     ) {
         noWinner.style.visibility = "visible";  //if all squares are marked but no winners, display no winner banner 
+        playerDisplayX.style.visibility = "hidden"; //hide current player display
+        playerDisplayO.style.visibility = "hidden";   
     }
 }
 

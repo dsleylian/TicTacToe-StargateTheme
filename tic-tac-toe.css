@@ -44,9 +44,10 @@ body {
     background-size: 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
-   
 }
+
 h1 {
+    align-self: center;
     margin-top: 8px;
     margin-bottom: 5px;
     font-size: 60px;
@@ -55,7 +56,6 @@ h1 {
                     1px -1px 0 #ffffff,
                     -1px 1px 0 #ffffff,
                     1px 1px 0 #ffffff;
-    
 }
 
 button {
@@ -87,9 +87,8 @@ p.right {
     float: right;
     margin-top: -60px;
     margin-right: 100px;
-    
-  
 }
+
 p.left {
     float: left; 
     margin-top: -60px;
@@ -124,10 +123,8 @@ img {
 }
 
 #winnerIsX {
-    
     margin-left: auto;
     margin-right: auto;
-    
     border:red 5px solid;
     opacity: 0.7;
     width: 450px;
@@ -139,10 +136,8 @@ img {
 }
 
 #winnerIsO {
-    
     margin-left: auto;
     margin-right: auto;
-    
     border:red 5px solid;
     opacity: 0.7;
     width: 450px;
@@ -150,7 +145,83 @@ img {
     margin-top: -295px;
     margin-bottom: 100px;
     padding: 50px;
-
     background-color: linen;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+
+    #container {
+        width: 306px;
+        height: 305px;
+        margin-top: 40px;
+    }
+
+    .inside, .markx, .marko {
+    width: 101px;
+    height: 100px;
+    }
+
+    p.right {
+        padding-right: 20px;
+    }
+    p.left{
+        padding-left: 20px;
+    }
+    p.right, p.left {
+        font-size: 25px;
+        margin: 0;
+        width: 180px;
+    }
+
+    #righttorch, #lefttorch, #choose {
+        margin: 0;
+    }
+    #righttorch {
+        margin-right: 50px;
+    }
+    #lefttorch{
+        margin-left: 50px;
+    }
+    body {
+        background-repeat: repeat;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #container {
+        width: 206px;
+        height: 205px;
+        margin-top: 40px;
+    }
+
+    .inside, .markx, .marko {
+    width: 68px;
+    height: 68px;
+    }
+
+    p.right, p.left {
+        font-size: 20px;
+        margin: 0;
+        width: 60px;
+
+    }
+
+    #righttorch, #lefttorch, #choose {
+        margin: 0;
+
+    }
+    #winnerIsO, #winnerIsX {
+        margin-top: -200px;
+        margin-bottom: 0px;
+        width:200px;
+    }
+
+    img{
+        height: 150px;
+    }
+
+    body {
+        background-repeat: repeat;
+    }
 }
 
