@@ -13,11 +13,11 @@ oButton.addEventListener("click", setUpO);
 
 //create torches for each player
 let torchOnX = document.createElement("img");
-torchOnX.src = "images/flameon.gif";
+
 torchOnX.setAttribute("id", "righttorch");
 
 let torchOnO = document.createElement("img");
-torchOnO.src = "images/flameon.gif";
+
 torchOnO.setAttribute("id", "lefttorch");
 
 //not sure if will use torch off
