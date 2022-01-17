@@ -230,6 +230,12 @@ img {
     button {
         color:black;
         background-color: rgb(34, 125, 148);
+        border: none
+    }
+
+    #startover{
+        margin-left: auto;
+        margin-right: auto;
     }
     
     button:hover {
