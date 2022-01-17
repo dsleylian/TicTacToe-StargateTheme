@@ -232,8 +232,11 @@ img {
         background-color: rgb(34, 125, 148);
         border: none
     }
-
     #startover{
+        margin-top: 20px;
+    }
+
+    #startover-div{
         margin-left: auto;
         margin-right: auto;
     }
