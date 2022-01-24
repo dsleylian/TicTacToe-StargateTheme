@@ -149,6 +149,27 @@ img {
     background-color: linen;
 }
 
+#landing-page-link {
+    position: absolute;
+    right: 5px;
+    top:5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 3px 6px 2px 6px;
+    font-size: 15px;
+    background-color: rgba(51, 161, 189);
+    text-decoration: none;
+}
+
+#landing-page-link:visited{
+    color: inherit;
+}
+
+#landing-page-link:hover{ 
+    box-shadow: 12px 12px 40px 0 rgba(16, 148, 196),-12px 12px 40px 0 rgba(16, 148, 196),
+12px -12px 40px 0 rgba(16, 148, 196), -12px -12px 40px 0 rgba(16, 148, 196);
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1100px) {
 
     #container {
